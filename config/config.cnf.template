@@ -1,0 +1,21 @@
+[req]
+default_bits = 4096
+prompt = no
+default_md = sha256
+req_extensions = v3_req
+distinguished_name = dn
+
+[dn]
+C = TEMPLATE_COUNTRY
+ST = TEMPLATE_STATE
+L = TEMPLATE_CITY
+O = TEMPLATE_ORG
+emailAddress = TEMPLATE_EMAIL
+CN = TEMPLATE_HOST_NAME
+
+[v3_req]
+subjectAltName = @alt_names
+
+[alt_names]
+IP.1 = TEMPLATE_HOST_NAME
+
