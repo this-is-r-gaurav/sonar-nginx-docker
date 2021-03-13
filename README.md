@@ -1,4 +1,4 @@
-# SONAR-NGINX-SELF_SIGNED
+# SONAR-NGINX-DOCKER
 
 This Repository contains scripts and dockerfiles, to setup a single node instance of sonarqube, behind nginx proxy over https.
 
