@@ -5,3 +5,4 @@
 **/*.cnf
 **/*.env
 **/*.conf
+!config.conf
