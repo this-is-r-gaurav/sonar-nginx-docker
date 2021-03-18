@@ -1,0 +1,19 @@
+# Server ip address or path without protocol
+SONAR_SERVER=
+
+# The name that will be displayed in sonarqube server ui.
+SONAR_PROJECT_NAME=
+
+# A Human readable key (or alias of actual key) that is being assigned to your project in sonarqube server
+SONAR_PROJECT_KEY=
+
+# LOGIN KEY Associated With Project
+SONAR_PROJECT_LOGIN=
+
+# Does sonar server is of community edition
+SONAR_COMMUNITY="yes"
+
+# If Your Sonarqube is community edition then branch will be ignored, and set to main as default
+PROJECT_BRANCH=
+
+

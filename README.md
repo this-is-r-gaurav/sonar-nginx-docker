@@ -60,11 +60,31 @@ docker build -f scanner.dockerfile -t scanner_image_name .
 ```
 
 ## How to Scan. 
-We need to mount the `project_code_dir` in `/workspace` inside container. In below command replace `{project_dir}` and `{absolute_path_of_project_dir_in_host}` with your code respective dir.
 
+You can run a scan in two ways:  
+1. Filling [sonar.variables](scanner/sonar.variables). And running command 
 ```bash
-sudo docker run -v {absolute_path_of_project_dir_in_host}:/workspace/{project_dir} -it scanner_image_name SONAR_HOST_IP  SONAR_PROJECT_KEY SONAR_LOGIN_KEY_FOR_PROJECT
+sudo docker run -v host_abs_path_to_sonar.variables:/var/sonar.variables -v abs_path_to_project_dir:/workspace/project_dir -it image_name
 ```
+2. By Manually entering details.
+```bash 
+sudo docker run -v SOURCE_CODE_BASE_DIR_PATH_IN_HOST:/workspace/SOURCE_CODE_DIR_NAME -it IMAGE_NAME HOST_ADDRESS PROJECT_KEY PROJECT_LOGIN_KEY [PROJECT_BRANCH [SONAR_PROJECT_NAME [SONAR_COMMUNITY] ] ]
+```
+
+**SOURCE_CODE_BASE_DIR_PATH_IN_HOST** = “Absolute path of source code dir in host system”  
+
+**SOURCE_CODE_DIR** = “you can use any name, but better to name it same as dir in host.”
+
+**HOST_ADDRESS** = “Path of sonar server without protocol”  
+
+**PROJECT_KEY** = “HUMAN READABLE KEY ALIAS”  
+ 
+**PROJECT_LOGIN_KEY** = “Login Key for a Project, you can get this while running the scan first time”  
+
+**PROJECT_BRANCH** = If `SONAR_COMMUNITY` is not specified or `SONAR_COMMUNITY=yes` then this value will be ignored, If it is anything else then you can specify the branch, it is use to validate before running the scan on source code whether current branch is same as the one mentioned. And to display the branch name in sonarqube UI beside PROJECT NAME.  
+
+SONAR_COMMUNITY = Its value can be yes or no, default : yes, if sonar server is community version then set it to yes.  
+
 
 ## Cleaning
 

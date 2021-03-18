@@ -1,5 +1,5 @@
 FROM alpine:3.12.4
-RUN apk --no-cache --update add openjdk11-jre npm
+RUN apk --no-cache --update add openjdk11-jre npm git
 COPY sonar.crt /tmp/
 COPY root-ca.crt /tmp/
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk
